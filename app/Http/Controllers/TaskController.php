@@ -69,7 +69,7 @@ class TaskController extends Controller
 
 
     // صفحة عرض مهمة واحدة)
-   public function show($id)
+  public function show($id)
 {
     $tasks = session('tasks', []);
 
@@ -79,12 +79,18 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('error', 'المهمة غير موجودة');
     }
 
-    // تعديل التاريخ إلى صيغة عربية
+    // لو created_at مش موجود (مهمات قديمة قبل التعديل) نحط له قيمة افتراضية
+    if (!isset($task['created_at']) || empty($task['created_at'])) {
+        $task['created_at'] = now(); // أو ممكن تخليها $task['due_date']
+    }
+
+    // تحويل التواريخ إلى صيغة عربية
     $task['due_date_ar'] = $this->arabicDate($task['due_date']);
     $task['created_at_ar'] = $this->arabicDate($task['created_at']);
 
     return view('tasks.show', compact('task'));
 }
+
 
 private function arabicDate($date)
 {
