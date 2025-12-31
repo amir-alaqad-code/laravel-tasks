@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class TaskController extends Controller
 {
@@ -69,7 +71,7 @@ class TaskController extends Controller
 
 
     // صفحة عرض مهمة واحدة)
-  public function show($id)
+ public function show($id)
 {
     $tasks = session('tasks', []);
 
@@ -79,17 +81,30 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('error', 'المهمة غير موجودة');
     }
 
-    // لو created_at مش موجود (مهمات قديمة قبل التعديل) نحط له قيمة افتراضية
+    // لو created_at مش موجود (مهام قديمة) نحط له قيمة افتراضية
     if (!isset($task['created_at']) || empty($task['created_at'])) {
-        $task['created_at'] = now(); // أو ممكن تخليها $task['due_date']
+        $task['created_at'] = now();
     }
 
-    // تحويل التواريخ إلى صيغة عربية
+    // تواريخ عربية
     $task['due_date_ar'] = $this->arabicDate($task['due_date']);
     $task['created_at_ar'] = $this->arabicDate($task['created_at']);
 
-    return view('tasks.show', compact('task'));
+    // حساب مدة من/إلى تاريخ التسليم (بالعربي بسيطة)
+    $due = Carbon::parse($task['due_date']);
+    $daysDiff = $due->diffInDays(now(), false); // سالب = لسه ما وصلنا الموعد
+
+    if ($daysDiff > 0) {
+        $elapsed_text = "تم الانتهاء قبل {$daysDiff} يوم";
+    } elseif ($daysDiff < 0) {
+        $elapsed_text = "متبقي " . abs($daysDiff) . " يوم على التسليم";
+    } else {
+        $elapsed_text = "اليوم هو موعد التسليم";
+    }
+
+    return view('tasks.show', compact('task', 'elapsed_text'));
 }
+
 
 
 private function arabicDate($date)
