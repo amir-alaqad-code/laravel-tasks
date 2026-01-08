@@ -1,213 +1,262 @@
 Laravel Tasks – Dockerized TODO Application 🐳📋
 
-Laravel Tasks is a small task management application built with Laravel 12, fully containerized using Docker and documented in a professional GitHub workflow.
+Laravel Tasks is a small and portable task management web application built with Laravel 12, fully containerized using Docker and documented through a professional GitHub workflow.
 The project demonstrates modern software engineering practices including reproducible environments, clean repository structure, lightweight database configuration, and developer-friendly documentation.
 
-Overview ✨
+✨ Features Overview
 
 The application allows users to:
 
-• Create new tasks
-• View existing tasks
-• Update tasks
-• Delete tasks
+Create Tasks
 
-All data is stored in a local SQLite database, making the environment simple and portable.
-Although the features are intentionally minimal, the focus of this work is on:
+View Tasks
 
-• Docker containerization
-• Professional Git/GitHub usage
-• Repository documentation best practices
-• Lightweight database setup
-• OS-related deployment concepts
+Update Tasks
 
-Technology Stack ⚙️
+Delete Tasks
+
+Data is stored in a local SQLite database to ensure simplicity and portability.
+Although functionality is minimal, the focus is on:
+
+Docker containerization
+
+OS-related deployment concepts
+
+Professional Git/GitHub usage
+
+Clean documentation for reproducibility
+
+⚙️ Technology Stack
 
 Framework & Runtime
 
-• Laravel 12
-• PHP 8.3 (CLI)
+Laravel 12
+
+PHP 8.3 (CLI)
 
 Database
 
-• SQLite (file-based, no external DB container required)
+SQLite (file-based)
 
 Environment & Tooling
 
-• Docker + Docker Compose
-• Multi-stage Dockerfile (build + runtime)
-• Docker Healthcheck
-• WSL2 (Ubuntu) + Docker Desktop
-• Git + GitHub
+Docker
 
-Project Structure 📁
+Docker Compose
 
-The repository follows a clean and professional structure:
+Multi-stage Dockerfile
 
+Docker Healthcheck
+
+WSL2 (Ubuntu) + Docker Desktop
+
+Git & GitHub
+
+📁 Repository Structure
 laravel-tasks/
-– app/
-– bootstrap/
-– config/
-– database/ (SQLite file)
-– public/
-– resources/
-– routes/
-– storage/
-– tests/
-– docs/
-• screenshots/ (assignment evidence)
-• notes.md (technical notes)
-– Dockerfile
-– docker-compose.yml
-– .dockerignore
-– .gitignore
-– composer.json / composer.lock
-– .env.example / .env
-– README.md
+├─ app/
+├─ bootstrap/
+├─ config/
+├─ database/
+│  └─ database.sqlite
+├─ public/
+├─ resources/
+├─ routes/
+├─ storage/
+├─ tests/
+├─ docs/
+│  ├─ screenshots/
+│  └─ notes.md
+├─ Dockerfile
+├─ docker-compose.yml
+├─ .dockerignore
+├─ .gitignore
+├─ composer.json
+├─ composer.lock
+├─ .env.example
+├─ .env
+└─ README.md
 
-This structure meets the assignment requirements and supports reproducible deployments.
 
-Running the Application with Docker 🐳
+This structure satisfies reproducibility and documentation requirements.
 
-The application runs fully inside Docker, ensuring consistent behavior across machines.
-Using Docker Compose, the entire environment is started with a single command.
+🐳 Running the Application with Docker
 
-Clone the repository
+The application runs entirely inside Docker via Docker Compose, ensuring consistent behavior across machines.
+
+Steps:
+
+Clone repository
 
 Configure .env
 
-Build the image
+Build Docker image
 
-Start the container
+Run container
 
 Access via browser
 
-The service runs on:
+Service URL:
 
 http://localhost:8000
 
-Using Docker enables:
+Using Docker provides:
 
-✓ Reproducible builds
-✓ Clean dependency isolation
-✓ Portable development environments
-✓ Reduced “works on my machine” problems
+Reproducible builds
 
-Database Configuration (SQLite) 🗄️
+Portability
 
-SQLite is used as a file-based database for simplicity.
-Key benefits:
+Clean isolation
 
-✓ No extra containers
-✓ Zero-configuration
-✓ Ideal for academic and testing environments
+Reduced “it works on my machine” issues
 
-The SQLite file is stored under database/database.sqlite and is initialized during container setup.
+🗄️ Database (SQLite)
 
-Docker Highlights 🚀
+SQLite is used for simplicity and academic testing:
 
-This project includes:
+Benefits:
 
-• Multi-stage build (Composer → Runtime)
-• Lightweight PHP runtime image
-• Healthcheck support
-• WSL2 compatibility
-• SQLite database inside container
-• Clean Dockerfile + Compose design
+No additional containers
 
-Bonus features for the assignment include:
+Zero-configuration
 
-✓ Docker Compose (Bonus A)
-✓ Multi-stage Dockerfile (Bonus C)
-✓ Healthcheck (Bonus D)
+Lightweight and portable
 
-Git & GitHub Workflow 📌
+Database file:
 
-GitHub was used with a clean and professional workflow:
+database/database.sqlite
 
-• Meaningful commit messages (semantic style)
-• Organized repository structure
-• Screenshots and notes in /docs
-• README tailored for developer onboarding
-• No vague commit messages like “final” or “update”
-• Optional PR workflow for improvements
+🚀 Docker Highlights
 
-This satisfies the assignment’s Commit professionalism and Proof & evidence criteria.
+Included features:
 
-Screenshots & Evidence 📸
+Multi-stage Dockerfile (Composer → Runtime)
 
-All screenshots required for the OS assignment are available inside:
+Lightweight runtime image
+
+Healthcheck support
+
+WSL2 compatibility
+
+SQLite configured inside container
+
+Clean Dockerfile + Compose setup
+
+Assignment Bonus Work:
+
+Docker Compose (Bonus A)
+
+Multi-stage Dockerfile (Bonus C)
+
+Healthcheck (Bonus D)
+
+📌 Git & GitHub Workflow
+
+A clean workflow has been used throughout the project:
+
+Meaningful commit messages (semantic style)
+
+Organized repository structure
+
+README designed for developer onboarding
+
+Technical notes under /docs
+
+Avoided vague commit messages (e.g., “final”, “test”, “update”)
+
+Optional PR workflow for extra bonus points
+
+This satisfies Commit professionalism + Proof & Evidence criteria.
+
+📸 Screenshots & Evidence
+
+All assignment screenshots are located in:
 
 docs/screenshots/
 
-Examples include:
 
-• Docker build output
-• Docker container running
-• Application running in browser
-• GitHub commit history
-• GitHub repository overview
+Screenshots include:
 
-These are also included in the final PDF submission.
+Docker build output
 
-Technical Notes 📝
+Docker container running
 
-The file docs/notes.md summarizes:
+Application in browser
 
-• The biggest Docker issue and how it was solved
-• Key Git/GitHub lessons learned
-• Reflection on reproducibility and OS concepts
+GitHub commit history
 
-This satisfies the written component of the assignment.
+GitHub repository view
 
-Assignment Context 🎓
+These are also provided in the final PDF.
 
-This repository was completed as part of:
+📝 Technical Notes
+
+The file:
+
+docs/notes.md
+
+
+contains:
+
+Biggest Docker problem and solution
+
+Key Git/GitHub lesson learned
+
+Reflection on reproducibility and OS concepts
+
+🎓 Assignment Context
+
+This repository was completed for:
 
 Operating Systems Lab – Assignment #2 (Docker & GitHub)
 
-The assignment evaluates:
+Evaluated on:
 
-• Docker correctness
-• GitHub structure & documentation
-• Commit professionalism
-• Evidence & reproducibility
-• Bonus integration
+Docker correctness
 
-Based on the assignment rubric, this project aims for maximum scoring including bonus sections.
+Repository structure & documentation
 
-Limitations & Future Enhancements 🔧
+Commit professionalism
 
-Potential extensions include:
+Technical evidence & screenshots
 
-• Switching to MySQL/PostgreSQL container
-• GitHub Actions CI pipeline
-• Deployment to remote server
-• Container-based testing
-• Role-based authentication
-• REST API versioning
+Bonus integration
 
-These improvements provide paths for scaling the prototype into a production-like service.
+This project aims for maximum scoring including bonus sections.
 
-Author 👤
+🔧 Limitations & Future Enhancements
+
+Possible improvements:
+
+Switch to MySQL/PostgreSQL container
+
+Add GitHub Actions CI pipeline
+
+Deploy to remote server
+
+Add container-based testing
+
+Role-based authentication
+
+REST API versioning
+
+👤 Author
 
 Developed by: Amir N. H. Alaqad
-Submitted for: Operating Systems Lab
+Submitted to: Operating Systems Lab
 Institution: IUG – Software Development
 Eng: Yousef M. Y. Al Sabbah
 
-Repository Link 🔗
-
-GitHub:
+🔗 Repository Link
 
 https://github.com/amir-alaqad-code/laravel-tasks
 
-Developers can clone, build, and run the application using Docker within minutes.
+Developers can clone, build, and run the application using Docker in minutes.
 
-License 📄
+📄 License
 
-This project is intended for educational and academic use.
+This project is intended for academic and educational use.
 
-SEO Tags 🏷️
+🏷️ SEO Tags
 
 Laravel 12, Docker, Docker Compose, PHP 8.3, SQLite, Multi-stage Dockerfile, WSL2, GitHub, DevOps, Software Engineering, OS Lab Assignment, Containerization, Laravel Tasks App, Web Application, Developer Documentation, Clean Repository, Academic Project
