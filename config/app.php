@@ -85,19 +85,16 @@ return [
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Encryption Key
-    |--------------------------------------------------------------------------
-    |
-    | This key is utilized by Laravel's encryption services and should be set
-    | to a random, 32 character string to ensure that all encrypted values
-    | are secure. You should do this prior to deploying the application.
-    |
-    */
+|--------------------------------------------------------------------------
+| Application Key
+|--------------------------------------------------------------------------
+|
+| This key is used by the Illuminate encrypter service...
+| NOTE: Hardcoded for deployment on Railway.
+|
+*/
 
-    'cipher' => 'AES-256-CBC',
-
-    'key' => 'base64:OZ3gx2+D1juyV/wXlUI1e1baU4acS6qcX49u22lnxz14=',
+'key'    => '0123456789abcdefghijklmnopqrstuv', // 32 chars
 'cipher' => 'AES-256-CBC',
 
 
